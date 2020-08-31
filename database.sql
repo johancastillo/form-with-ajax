@@ -8,6 +8,8 @@ CREATE TABLE task(
   description VARCHAR(255)
 );
 
-INSERT INTO task (id, name, description) VALUES (
-  1, 'Escribir', 'Tengo que escribir un articulo'
-);
+INSERT INTO task (id, name, description)
+VALUES (1, 'Escribir', 'Tengo que escribir un articulo'),
+       (2, 'Crear un sitio web', 'Tengo que crear un sitio web con Wordpress');
+
+SELECT * FROM task;
