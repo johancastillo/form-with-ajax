@@ -2,9 +2,9 @@
 
   $connection = mysqli_connect(
     'localhost',
-    'johancastillo',
-    'GameOver2707$',
-    'tasks_list_app'
+    'usuario',
+    'contraseña',
+    'database'
   );
 
   //Comprobación

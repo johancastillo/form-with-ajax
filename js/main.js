@@ -3,6 +3,13 @@ $(function(){
 
   $('#search').keyup(function(){
     let search = $('#search').val();
-    console.log(search);
+    $.ajax({
+      url: 'task-search.php',
+      type: 'POST',
+      data: {search: search},
+      success: function(response){
+        console.log(response)
+      }
+    })
   })
 });
