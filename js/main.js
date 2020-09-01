@@ -1,4 +1,7 @@
 $(function(){
+
+  let edit = false;
+
   console.log('JQuery is Working');
   $('#task-result').hide();
 
@@ -31,12 +34,17 @@ $(function(){
       name: $('#name').val(),
       description: $('#description').val()
     };
+
+    //Validar la variable edit
+    let url = edit === false ? 'task-add.php' : 'task-edit.php';
+
     //Prevenir el comportamiento por defecto del evento submit
     e.preventDefault()
     //Enviar datos del formulario
-    $.post('task-add.php', postData, response =>{
+    $.post(url, postData, response =>{
       //Obtener todas las tareas nuevamente al agregar una nueva
       fetchTasks();
+      console.log(response);
       //Mensaje de exito al crear una nueva tarea
       Swal.fire({
         position: 'top-end',
@@ -64,7 +72,9 @@ $(function(){
           template += `
             <tr taskId="${task.id}">
               <td>${task.id}</td>
-              <td>${task.name}</td>
+              <td>
+                <a href="#" class="task-item">${task.name}</a>
+              </td>
               <td>${task.description}</td>
               <td>
                 <button class="task-delete btn btn-danger">
@@ -120,5 +130,22 @@ $(function(){
 
   //Ejecutar la función fetchTasks al cargar la página
   fetchTasks();
+
+  //operacion de editar tarea
+  $(document).on('click', '.task-item', function(){
+    let element = $(this)[0].parentElement.parentElement;
+    let id = $(element).attr('taskId');
+    //Enviar ID al backend
+    $.post('task-single.php', {id}, function(response){
+      const task = JSON.parse(response);
+
+      //Mostrar los datos a editar en el formulario
+      $('#name').val(task.name);
+      $('#description').val(task.description);
+
+      edit = true;
+    });
+
+  });
 
 });
