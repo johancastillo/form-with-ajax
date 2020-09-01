@@ -24,5 +24,11 @@ $(function(){
         }
       })
     }
-  })
+  });
+
+  $('#task-form').submit(function(e){
+    e.preventDefault()
+    console.log('Submiting')
+  });
+
 });
