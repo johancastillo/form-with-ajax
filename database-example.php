@@ -8,8 +8,10 @@
   );
 
   //Comprobación
+  /*
   if($connection){
     echo "Database is connected";
   }
+  */
 
 ?>
