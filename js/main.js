@@ -45,18 +45,30 @@ $(function(){
     $.post(url, postData, response =>{
       //Obtener todas las tareas nuevamente al agregar una nueva
       fetchTasks();
-      console.log(response);
       //Mensaje de exito al crear una nueva tarea
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Tarea agregada exitosamente',
-        showConfirmButton: false,
-        timer: 1500
-      });
+      if (edit) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Tarea editada exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }else{
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Tarea agregada exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+
 
       //Resetear campos de formularios al enviar datos
       $('#task-form').trigger('reset');
+
+      edit = false;
     });
   });
 
