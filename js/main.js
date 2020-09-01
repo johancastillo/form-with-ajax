@@ -36,6 +36,8 @@ $(function(){
     //Enviar datos del formulario
     $.post('task-add.php', postData, response =>{
       console.log(response);
+
+      $('#task-form').trigger('reset');
     });
 
 
