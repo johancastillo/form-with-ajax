@@ -66,6 +66,11 @@ $(function(){
               <td>${task.id}</td>
               <td>${task.name}</td>
               <td>${task.description}</td>
+              <td>
+                <button class="task-delete btn btn-danger">
+                  Eliminar
+                </button>
+              </td>
             </tr>
           `
         });
@@ -76,6 +81,11 @@ $(function(){
       }
     });
   };
+
+  //Eliminar tareas
+  $(document).on('click', '.task-delete', function(){
+    console.log('clicked');
+  });
 
   //Ejecutar la función fetchTasks al cargar la página
   fetchTasks();
