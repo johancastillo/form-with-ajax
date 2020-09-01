@@ -88,14 +88,32 @@ $(function(){
     let element = $(this)[0].parentElement.parentElement;
     //Seleccionar el elemento que tenga el atributo taskId
     let id = $(element).attr('taskId');
-    //Enviar ID al backend
-    let afirmation = confirm("¿Estás seguro de eliminar ésta tarea?");
 
-    if(afirmation){
-      $.post('task-delete.php', {id}, function(response){
-          fetchTasks();
+    Swal.fire({
+      title: '¿Estás seguro de eliminar ésta tarea?',
+      text: "Si eliminas, la información se perderá.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar'
+      }).then((result) => {
+        if (result.value) {
+          //Enviar ID a eliminar al backend
+          $.post('task-delete.php', {id}, function(response){
+              fetchTasks();
+
+              //Mostrar mensaje de exito
+              Swal.fire(
+                'Eliminado',
+                'La tarea ha sido aliminada correctamente.',
+                'success'
+              )
+
+          });
+
+        }
       });
-    }
 
   });
 
