@@ -36,11 +36,19 @@ $(function(){
     //Enviar datos del formulario
     $.post('task-add.php', postData, response =>{
       console.log(response);
+      alert("Tarea agregada exitosamente");
 
+      //Resetear campos de formularios al enviar datos
       $('#task-form').trigger('reset');
     });
+  });
 
-
+  $.ajax({
+    url:'task-list.php',
+    type: 'GET',
+    success: function(response){
+      console.log(response);
+    }
   });
 
 });
