@@ -32,7 +32,8 @@ $(function(){
   $('#task-form').submit(function(e){
     const postData = {
       name: $('#name').val(),
-      description: $('#description').val()
+      description: $('#description').val(),
+      id: $('#taskId').val()
     };
 
     //Validar la variable edit
@@ -142,6 +143,7 @@ $(function(){
       //Mostrar los datos a editar en el formulario
       $('#name').val(task.name);
       $('#description').val(task.description);
+      $('#taskId').val(task.id);
 
       edit = true;
     });
