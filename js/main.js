@@ -8,7 +8,7 @@ $(function(){
       type: 'POST',
       data: {search: search},
       success: function(response){
-        console.log(response)
+        JSON.parse(response)
       }
     })
   })
