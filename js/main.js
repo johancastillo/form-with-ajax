@@ -62,7 +62,7 @@ $(function(){
         let template = '';
         tasks.map(task => {
           template += `
-            <tr>
+            <tr taskId="${task.id}">
               <td>${task.id}</td>
               <td>${task.name}</td>
               <td>${task.description}</td>
@@ -85,7 +85,10 @@ $(function(){
   //Eliminar tareas
   $(document).on('click', '.task-delete', function(){
     //Obtener ID de la tarea a eliminar
-    console.log($(this));
+    let element = $(this)[0].parentElement.parentElement;
+    //Seleccionar el elemento que tenga el atributo taskId
+    let id = $(element).attr('taskId');
+    console.log(id);
   });
 
   //Ejecutar la función fetchTasks al cargar la página
