@@ -1,5 +1,6 @@
 $(function(){
-  console.log('JQuery is Working')
+  console.log('JQuery is Working');
+  $('#task-result').hide();
 
   $('#search').keyup(function(e){
     if($('#search').val()){
@@ -19,7 +20,7 @@ $(function(){
           });
 
           $('#container').html(template);
-
+          $('#task-result').show();
         }
       })
     }
