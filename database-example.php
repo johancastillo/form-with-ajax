@@ -4,7 +4,7 @@
     'localhost',
     'usuario',
     'contraseña',
-    'database'
+    'tasks_list_app'
   );
 
   //Comprobación

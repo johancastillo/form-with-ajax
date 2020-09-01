@@ -27,8 +27,12 @@ $(function(){
   });
 
   $('#task-form').submit(function(e){
+    const postData = {
+      name: $('#name').val(),
+      description: $('#description').val()
+    };
     e.preventDefault()
-    console.log('Submiting')
+    console.log(postData);
   });
 
 });
