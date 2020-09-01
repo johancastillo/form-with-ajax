@@ -96,6 +96,7 @@ $(function(){
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
       confirmButtonText: 'Sí, eliminar'
       }).then((result) => {
         if (result.value) {
