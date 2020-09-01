@@ -24,7 +24,7 @@
 
     <!-- Container -->
     <div class="container-fluid p-4">
-      <div class="row">
+      <div class="row justify-content-center">
 
         <div class="col-md-5">
           <div class="card bg-dark">
@@ -38,7 +38,7 @@
 
                 <div class="form-group">
                   <textarea rows="8" cols="80" id="description" class="form-control"
-                  placeholder="Escriba una descripción">
+                  placeholder="Escriba una descripción" value="">
                   </textarea>
                 </div>
 
@@ -53,7 +53,7 @@
 
         <!-- Tabla -->
         <div class="col-md-7">
-          <table class="table table-bordered table-sm">
+          <table class="table table-bordered table-sm text-center">
             <thead>
               <tr>
                 <td>ID</td>
@@ -61,7 +61,7 @@
                 <td>Descripción</td>
               </tr>
             </thead>
-            
+
             <tbody id="tasks"></tbody>
           </table>
         </div>
