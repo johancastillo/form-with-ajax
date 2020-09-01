@@ -47,7 +47,22 @@ $(function(){
     url:'task-list.php',
     type: 'GET',
     success: function(response){
-      console.log(response);
+      let tasks = JSON.parse(response);
+      //Plantilla HTML
+      let template = '';
+      tasks.map(task => {
+        template += `
+          <tr>
+            <td>${task.id}</td>
+            <td>${task.name}</td>
+            <td>${task.description}</td>
+          </tr>
+        `
+      });
+
+      //Insertar HTML en el DOM
+      $('#tasks').html(template);
+
     }
   });
 
