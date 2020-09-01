@@ -31,8 +31,14 @@ $(function(){
       name: $('#name').val(),
       description: $('#description').val()
     };
+    //Prevenir el comportamiento por defecto del evento submit
     e.preventDefault()
-    console.log(postData);
+    //Enviar datos del formulario
+    $.post('task-add.php', postData, response =>{
+      console.log(response);
+    });
+
+
   });
 
 });
