@@ -84,11 +84,19 @@ $(function(){
 
   //Eliminar tareas
   $(document).on('click', '.task-delete', function(){
-    //Obtener ID de la tarea a eliminar
+    //Obtener la fila del boton clickeado
     let element = $(this)[0].parentElement.parentElement;
     //Seleccionar el elemento que tenga el atributo taskId
     let id = $(element).attr('taskId');
-    console.log(id);
+    //Enviar ID al backend
+    let afirmation = confirm("¿Estás seguro de eliminar ésta tarea?");
+
+    if(afirmation){
+      $.post('task-delete.php', {id}, function(response){
+          fetchTasks();
+      });
+    }
+
   });
 
   //Ejecutar la función fetchTasks al cargar la página
