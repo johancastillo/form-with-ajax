@@ -35,35 +35,49 @@ $(function(){
     e.preventDefault()
     //Enviar datos del formulario
     $.post('task-add.php', postData, response =>{
-      console.log(response);
-      alert("Tarea agregada exitosamente");
+      //Obtener todas las tareas nuevamente al agregar una nueva
+      fetchTasks();
+      //Mensaje de exito al crear una nueva tarea
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Tarea agregada exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
 
       //Resetear campos de formularios al enviar datos
       $('#task-form').trigger('reset');
     });
   });
 
-  $.ajax({
-    url:'task-list.php',
-    type: 'GET',
-    success: function(response){
-      let tasks = JSON.parse(response);
-      //Plantilla HTML
-      let template = '';
-      tasks.map(task => {
-        template += `
-          <tr>
-            <td>${task.id}</td>
-            <td>${task.name}</td>
-            <td>${task.description}</td>
-          </tr>
-        `
-      });
+  //Obtener tareas
+  function fetchTasks(){
+    $.ajax({
+      url:'task-list.php',
+      type: 'GET',
+      success: function(response){
+        let tasks = JSON.parse(response);
+        //Plantilla HTML
+        let template = '';
+        tasks.map(task => {
+          template += `
+            <tr>
+              <td>${task.id}</td>
+              <td>${task.name}</td>
+              <td>${task.description}</td>
+            </tr>
+          `
+        });
 
-      //Insertar HTML en el DOM
-      $('#tasks').html(template);
+        //Insertar HTML en el DOM
+        $('#tasks').html(template);
 
-    }
-  });
+      }
+    });
+  };
+
+  //Ejecutar la función fetchTasks al cargar la página
+  fetchTasks();
 
 });
