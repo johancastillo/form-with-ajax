@@ -84,7 +84,8 @@ $(function(){
 
   //Eliminar tareas
   $(document).on('click', '.task-delete', function(){
-    console.log('clicked');
+    //Obtener ID de la tarea a eliminar
+    console.log($(this));
   });
 
   //Ejecutar la función fetchTasks al cargar la página
