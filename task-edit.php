@@ -2,12 +2,19 @@
 
   include('database.php');
 
-  $query = "";
+  $id = $_POST['id'];
+  $name = $_POST['name'];
+  $description = $_POST['description'];
+
+  $query = "UPDATE task SET name = '$name', description = '$description'
+  WHERE id = '$id'";
+
   $result = mysqli_query($connection, $query);
 
-  echo $_POST['id'];
-  echo $_POST['name'];
-  echo $_POST['description'];
+  if(!result){
+    die("Query Failed.");
+  }
 
+  echo "Update task successfully";
 
  ?>
