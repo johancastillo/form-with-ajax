@@ -86,12 +86,17 @@ $(function(){
             <tr taskId="${task.id}">
               <td>${task.id}</td>
               <td>
-                <a href="#" class="task-item">${task.name}</a>
+                ${task.name}
               </td>
               <td>${task.description}</td>
               <td>
                 <button class="task-delete btn btn-danger">
                   Eliminar
+                </button>
+              </td>
+              <td>
+                <button class="task-item btn btn-warning">
+                  Editar
                 </button>
               </td>
             </tr>
