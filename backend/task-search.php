@@ -4,7 +4,7 @@
 
   $search = $_POST['search'];
 
-  echo "Hola";
+  echo $search;
     //$query = "SELECT name FROM task WHERE name LIKE '$search%'";
     //$result = mysqli_query($connection, $query);
     //if(!$result){
