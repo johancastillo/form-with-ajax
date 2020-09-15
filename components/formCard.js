@@ -9,7 +9,7 @@ Vue.component('form-card', {
         <div class="form-group">
           <input type="text" class="form-control" id="name"
           placeholder="Nombre de la tarea" required
-          pattern="[A-Za-z0-9_-]{1,20}" title="Ingresa texto">
+          pattern="[A-Za-z0-9_-]{1,20}">
         </div>
 
         <div class="form-group">

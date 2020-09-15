@@ -6,7 +6,7 @@ Vue.component('navbar', {
     <ul class="navbar-nav ml-auto">
       <form class="form-inline my-2 my-lg-0">
 
-        <input type="search" id="search" class="form-control mr-sm-2"
+        <input @keyup="buscar()" type="search" id="search" class="form-control mr-sm-2"
         placeholder="Buscar tarea">
 
         <button type="submit" class="btn btn-success my-2 my-sm-0">Buscar</button>
@@ -18,6 +18,11 @@ Vue.component('navbar', {
   data(){
     return {
       title: "Tasks List App"
+    }
+  },
+  methods: {
+    buscar(){
+      alert("Buscando...")
     }
   }
 });
