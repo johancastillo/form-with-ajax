@@ -1,5 +1,0 @@
-Vue.component('navbar', {
-  template: `
-    
-  `
-});
