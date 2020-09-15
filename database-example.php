@@ -7,11 +7,4 @@
     'tasks_list_app'
   );
 
-  //Comprobación
-  /*
-  if($connection){
-    echo "Database is connected";
-  }
-  */
-
 ?>
