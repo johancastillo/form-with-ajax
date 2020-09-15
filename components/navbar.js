@@ -17,12 +17,17 @@ Vue.component('navbar', {
   `,
   data(){
     return {
-      title: "Tasks List App"
+      title: "Tasks List App",
+      task: "Es"
     }
   },
   methods: {
     buscar(){
-      alert("Buscando...")
+      //Enviar datos del formulario a PHP mediante AJAX
+      $.post('backend/task-search.php', {search: this.task}, response =>{
+        console.log(response)
+
+      });
     }
   }
 });
